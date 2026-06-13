@@ -3,12 +3,13 @@ import { Mail, Linkedin, Github } from "lucide-react";
 
 /**
  * INFERNUM MINIMALIST PORTFOLIO
- * Design: Starry Night (Van Gogh) background + horizontal scroll gallery
+ * Design: Van Gogh's Starry Night painting + vibrant typography
  * Young artist (17, Class 12, Varanasi) - minimal UI, maximum art focus
  * 
  * Features:
- * - Animated starry night background
- * - Hero intro section
+ * - Van Gogh Starry Night background with swirling brushstrokes
+ * - Vibrant, popping text colors (golden yellows, bright whites)
+ * - Hero intro section with parallax
  * - Horizontal scroll gallery with curve effect (frames side-by-side)
  * - Multiple scroll animations (vertical + horizontal)
  * - Mobile-optimized responsive design
@@ -54,41 +55,16 @@ export default function Home() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-black overflow-hidden">
-      {/* Animated Starry Night Background */}
+    <div className="relative min-h-screen overflow-hidden">
+      {/* Van Gogh Starry Night Background */}
       <div className="fixed inset-0 z-0">
-        {/* Deep space gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0e27] via-[#1a1a3e] to-[#0f0f1e]" />
-        
-        {/* Animated stars */}
-        <div className="absolute inset-0">
-          {[...Array(150)].map((_, i) => {
-            const randomX = Math.random() * 100;
-            const randomY = Math.random() * 100;
-            const randomSize = Math.random() * 2 + 0.5;
-            const randomDuration = Math.random() * 3 + 2;
-            const randomDelay = Math.random() * 2;
-
-            return (
-              <div
-                key={i}
-                className="absolute rounded-full bg-white"
-                style={{
-                  left: `${randomX}%`,
-                  top: `${randomY}%`,
-                  width: `${randomSize}px`,
-                  height: `${randomSize}px`,
-                  opacity: Math.random() * 0.7 + 0.3,
-                  animation: `twinkle ${randomDuration}s ease-in-out ${randomDelay}s infinite`,
-                }}
-              />
-            );
-          })}
-        </div>
-
-        {/* Floating nebula orbs */}
-        <div className="absolute top-20 left-10 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl opacity-20 animate-pulse" />
-        <div className="absolute bottom-40 right-20 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl opacity-15 animate-pulse" style={{ animationDelay: "1s" }} />
+        <img
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663489963298/TeLdSdeGEfskEZUP2A7r4H/van-gogh-starry-night-bg-K4Gs2NjCjM27YRSfwu7qvf.webp"
+          alt="Van Gogh Starry Night Background"
+          className="w-full h-full object-cover"
+        />
+        {/* Overlay for text readability */}
+        <div className="absolute inset-0 bg-black/20" />
       </div>
 
       {/* Content */}
@@ -102,16 +78,45 @@ export default function Home() {
             }}
             className="transition-all duration-300"
           >
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 leading-tight">
+            {/* Main Title - Vibrant Golden Yellow with glow */}
+            <h1 className="text-5xl md:text-8xl font-bold mb-4 leading-tight drop-shadow-lg"
+              style={{
+                color: "#FFD700",
+                textShadow: "0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.4)",
+                fontFamily: "Playfair Display, serif",
+                letterSpacing: "0.1em",
+              }}
+            >
               INFERNUM
             </h1>
-            <p className="text-lg md:text-2xl text-gray-300 mb-2 font-light">
+
+            {/* Subtitle - Bright White */}
+            <p className="text-lg md:text-3xl mb-2 font-light drop-shadow-lg"
+              style={{
+                color: "#FFFFFF",
+                textShadow: "0 0 10px rgba(255, 255, 255, 0.6)",
+              }}
+            >
               Character Artist
             </p>
-            <p className="text-sm md:text-base text-gray-400 mb-8">
+
+            {/* Location & Status - Cyan/Light Blue */}
+            <p className="text-sm md:text-lg mb-8 drop-shadow-lg"
+              style={{
+                color: "#00D9FF",
+                textShadow: "0 0 10px rgba(0, 217, 255, 0.6)",
+              }}
+            >
               Varanasi • Class 12 • JEE & UCEED Prep
             </p>
-            <div className="text-gray-400 text-sm md:text-base">
+
+            {/* Scroll indicator - Golden Yellow */}
+            <div className="text-sm md:text-base drop-shadow-lg"
+              style={{
+                color: "#FFD700",
+                textShadow: "0 0 10px rgba(255, 215, 0, 0.6)",
+              }}
+            >
               ↓ Scroll to explore ↓
             </div>
           </div>
@@ -120,10 +125,23 @@ export default function Home() {
         {/* Horizontal Scroll Gallery Section */}
         <section className="relative py-20 md:py-32 px-4 md:px-8">
           <div className="mb-12 text-center">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-2">
+            {/* Section Title - Vibrant Yellow */}
+            <h2 className="text-3xl md:text-5xl font-bold mb-2 drop-shadow-lg"
+              style={{
+                color: "#FFD700",
+                textShadow: "0 0 20px rgba(255, 215, 0, 0.8)",
+                fontFamily: "Playfair Display, serif",
+              }}
+            >
               Featured Works
             </h2>
-            <p className="text-gray-400 text-sm md:text-base">
+            {/* Subtitle - Cyan */}
+            <p className="text-sm md:text-base drop-shadow-lg"
+              style={{
+                color: "#00D9FF",
+                textShadow: "0 0 10px rgba(0, 217, 255, 0.6)",
+              }}
+            >
               Scroll horizontally to explore →
             </p>
           </div>
@@ -161,10 +179,17 @@ export default function Home() {
                         Math.sin(scrollX / 200 + idx) * 5
                       }deg)`,
                       transformStyle: "preserve-3d",
+                      boxShadow: "0 0 30px rgba(255, 215, 0, 0.4), 0 0 60px rgba(0, 217, 255, 0.2)",
                     }}
                   >
-                    {/* Frame border */}
-                    <div className="absolute inset-0 border-8 md:border-12 border-gray-800/80 rounded-2xl pointer-events-none z-10 bg-gradient-to-br from-white/5 to-transparent" />
+                    {/* Frame border with gradient */}
+                    <div className="absolute inset-0 border-8 md:border-12 rounded-2xl pointer-events-none z-10"
+                      style={{
+                        borderColor: "#FFD700",
+                        background: "linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(0, 217, 255, 0.05) 100%)",
+                        boxShadow: "inset 0 0 20px rgba(255, 215, 0, 0.2)",
+                      }}
+                    />
 
                     {/* Image */}
                     <img
@@ -175,11 +200,16 @@ export default function Home() {
                     />
 
                     {/* Overlay gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
 
-                    {/* Title */}
+                    {/* Title - Golden Yellow */}
                     <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/80 to-transparent">
-                      <h3 className="text-lg md:text-xl font-semibold text-white">
+                      <h3 className="text-lg md:text-xl font-semibold drop-shadow-lg"
+                        style={{
+                          color: "#FFD700",
+                          textShadow: "0 0 10px rgba(255, 215, 0, 0.8)",
+                        }}
+                      >
                         {art.title}
                       </h3>
                     </div>
@@ -194,7 +224,12 @@ export default function Home() {
 
           {/* Scroll hint for mobile */}
           <div className="text-center mt-8 md:hidden">
-            <p className="text-gray-500 text-xs animate-pulse">
+            <p className="text-xs animate-pulse drop-shadow-lg"
+              style={{
+                color: "#00D9FF",
+                textShadow: "0 0 10px rgba(0, 217, 255, 0.6)",
+              }}
+            >
               ← Swipe to see more →
             </p>
           </div>
@@ -209,13 +244,32 @@ export default function Home() {
             }}
             className="transition-all duration-300"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            {/* Section Title - Golden Yellow */}
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 drop-shadow-lg"
+              style={{
+                color: "#FFD700",
+                textShadow: "0 0 20px rgba(255, 215, 0, 0.8)",
+                fontFamily: "Playfair Display, serif",
+              }}
+            >
               About
             </h2>
-            <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-4">
+
+            {/* Body Text - Bright White */}
+            <p className="text-base md:text-lg leading-relaxed mb-4 drop-shadow-lg"
+              style={{
+                color: "#FFFFFF",
+                textShadow: "0 0 10px rgba(255, 255, 255, 0.4)",
+              }}
+            >
               I'm a 17-year-old digital character artist from Varanasi, currently in Class 12 while preparing for JEE and UCEED. My passion lies in creating expressive character designs with vibrant colors and dynamic poses.
             </p>
-            <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+            <p className="text-base md:text-lg leading-relaxed drop-shadow-lg"
+              style={{
+                color: "#FFFFFF",
+                textShadow: "0 0 10px rgba(255, 255, 255, 0.4)",
+              }}
+            >
               Through my art, I explore storytelling, emotion, and visual design. Every piece is a journey of learning and growth.
             </p>
           </div>
@@ -230,10 +284,23 @@ export default function Home() {
             className="transition-all duration-300"
           >
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              {/* Section Title - Golden Yellow */}
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 drop-shadow-lg"
+                style={{
+                  color: "#FFD700",
+                  textShadow: "0 0 20px rgba(255, 215, 0, 0.8)",
+                  fontFamily: "Playfair Display, serif",
+                }}
+              >
                 Connect
               </h2>
-              <p className="text-gray-400 text-sm md:text-base">
+              {/* Subtitle - Cyan */}
+              <p className="text-sm md:text-base drop-shadow-lg"
+                style={{
+                  color: "#00D9FF",
+                  textShadow: "0 0 10px rgba(0, 217, 255, 0.6)",
+                }}
+              >
                 Follow my journey and stay updated
               </p>
             </div>
@@ -259,7 +326,7 @@ export default function Home() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative"
+                  className="group relative transition-all duration-300 hover:scale-110"
                 >
                   {/* Glowing background */}
                   <div
@@ -267,10 +334,21 @@ export default function Home() {
                   />
 
                   {/* Button */}
-                  <div className="relative px-8 py-4 md:px-10 md:py-5 border border-gray-600 rounded-full hover:border-white transition-all duration-300 group-hover:bg-white/5 backdrop-blur-sm">
+                  <div className="relative px-8 py-4 md:px-10 md:py-5 rounded-full hover:backdrop-blur-sm transition-all duration-300"
+                    style={{
+                      border: "2px solid #FFD700",
+                      background: "rgba(255, 215, 0, 0.1)",
+                      boxShadow: "0 0 15px rgba(255, 215, 0, 0.3)",
+                    }}
+                  >
                     <div className="flex items-center gap-3">
-                      <social.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
-                      <span className="text-white font-medium text-sm md:text-base">
+                      <social.icon className="w-5 h-5 md:w-6 md:h-6" style={{ color: "#FFD700" }} />
+                      <span className="font-medium text-sm md:text-base drop-shadow-lg"
+                        style={{
+                          color: "#FFD700",
+                          textShadow: "0 0 10px rgba(255, 215, 0, 0.6)",
+                        }}
+                      >
                         {social.name}
                       </span>
                     </div>
@@ -282,8 +360,17 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="py-12 md:py-16 px-4 md:px-8 text-center border-t border-gray-800/30">
-          <p className="text-gray-500 text-xs md:text-sm">
+        <footer className="py-12 md:py-16 px-4 md:px-8 text-center border-t drop-shadow-lg"
+          style={{
+            borderColor: "rgba(255, 215, 0, 0.2)",
+          }}
+        >
+          <p className="text-xs md:text-sm drop-shadow-lg"
+            style={{
+              color: "#00D9FF",
+              textShadow: "0 0 10px rgba(0, 217, 255, 0.6)",
+            }}
+          >
             © 2026 Infernum • Varanasi, India
           </p>
         </footer>
@@ -291,15 +378,6 @@ export default function Home() {
 
       {/* CSS Animations */}
       <style>{`
-        @keyframes twinkle {
-          0%, 100% {
-            opacity: 0.3;
-          }
-          50% {
-            opacity: 0.9;
-          }
-        }
-
         /* Smooth scrolling */
         html {
           scroll-behavior: smooth;
@@ -308,7 +386,7 @@ export default function Home() {
         /* Hide scrollbar for gallery but keep functionality */
         .overflow-x-auto {
           scrollbar-width: thin;
-          scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+          scrollbar-color: rgba(255, 215, 0, 0.4) transparent;
         }
 
         .overflow-x-auto::-webkit-scrollbar {
@@ -320,12 +398,12 @@ export default function Home() {
         }
 
         .overflow-x-auto::-webkit-scrollbar-thumb {
-          background: rgba(255, 255, 255, 0.2);
+          background: rgba(255, 215, 0, 0.4);
           border-radius: 2px;
         }
 
         .overflow-x-auto::-webkit-scrollbar-thumb:hover {
-          background: rgba(255, 255, 255, 0.4);
+          background: rgba(255, 215, 0, 0.7);
         }
 
         /* Mobile optimizations */
@@ -350,8 +428,22 @@ export default function Home() {
         /* Focus styles */
         a:focus-visible,
         button:focus-visible {
-          outline: 2px solid rgba(255, 255, 255, 0.5);
+          outline: 2px solid rgba(255, 215, 0, 0.8);
           outline-offset: 2px;
+        }
+
+        /* Text glow effect */
+        h1, h2 {
+          animation: textGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes textGlow {
+          0%, 100% {
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.4);
+          }
+          50% {
+            text-shadow: 0 0 30px rgba(255, 215, 0, 1), 0 0 60px rgba(255, 215, 0, 0.6);
+          }
         }
       `}</style>
     </div>
