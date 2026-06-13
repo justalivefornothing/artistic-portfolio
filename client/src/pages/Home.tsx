@@ -1,17 +1,14 @@
 import { useState, useEffect, useRef } from "react";
-import { Mail, Linkedin, Github } from "lucide-react";
+import { Mail, Github } from "lucide-react";
 
 /**
- * INFERNUM MINIMALIST PORTFOLIO - MULTI-BACKGROUND DESIGN
+ * INFERNUM PORTFOLIO - THREE DISTINCT BACKGROUNDS
  * 
- * Three distinct section backgrounds:
- * 1. Hero: Van Gogh's Starry Night painting with swirling brushstrokes
- * 2. Gallery: 3D Art Gallery interior with wooden floors and white walls
- * 3. Social: Elegant dark navy with gold accents and geometric patterns
+ * SECTION 1 (Hero): Van Gogh Starry Night background
+ * SECTION 2 (Gallery): 3D Art Gallery background
+ * SECTION 3 (Social): Elegant dark navy with gold accents
  * 
- * Gallery frames styled as real museum frames (not simple borders)
- * Minimalist typography with soft colors
- * Multiple scroll animations
+ * Each section has its OWN full background that changes as you scroll
  */
 
 export default function Home() {
@@ -54,16 +51,15 @@ export default function Home() {
   return (
     <div className="relative">
       {/* ===== SECTION 1: HERO - VAN GOGH STARRY NIGHT ===== */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-4 md:px-8 text-center overflow-hidden">
-        {/* Starry Night Background */}
-        <div className="fixed inset-0 z-0 w-full h-screen">
-          <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663489963298/TeLdSdeGEfskEZUP2A7r4H/van-gogh-starry-night-bg-K4Gs2NjCjM27YRSfwu7qvf.webp"
-            alt="Van Gogh Starry Night"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/20" />
-        </div>
+      <section 
+        className="relative min-h-screen flex flex-col items-center justify-center px-4 md:px-8 text-center overflow-hidden bg-cover bg-center"
+        style={{
+          backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663489963298/TeLdSdeGEfskEZUP2A7r4H/van-gogh-starry-night-bg-K4Gs2NjCjM27YRSfwu7qvf.webp')",
+          backgroundAttachment: "fixed",
+        }}
+      >
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/20 z-0" />
 
         {/* Hero Content */}
         <div className="relative z-10">
@@ -122,21 +118,13 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 2: GALLERY - 3D ART GALLERY BACKGROUND ===== */}
-      <section className="relative py-20 md:py-32 px-4 md:px-8 overflow-hidden">
-        {/* Gallery 3D Background */}
-        <div className="fixed inset-0 z-0 w-full"
-          style={{
-            top: "100vh",
-            height: "100vh",
-          }}
-        >
-          <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663489963298/TeLdSdeGEfskEZUP2A7r4H/gallery-3d-bg-nvj3AgGJTnuF3AWEQ6Ztfv.webp"
-            alt="Gallery"
-            className="w-full h-full object-cover"
-          />
-        </div>
-
+      <section 
+        className="relative min-h-screen py-20 md:py-32 px-4 md:px-8 overflow-hidden bg-cover bg-center"
+        style={{
+          backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663489963298/TeLdSdeGEfskEZUP2A7r4H/gallery-3d-bg-nvj3AgGJTnuF3AWEQ6Ztfv.webp')",
+          backgroundAttachment: "fixed",
+        }}
+      >
         {/* Gallery Content */}
         <div className="relative z-10">
           <div className="mb-12 text-center">
@@ -263,18 +251,13 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 3: ABOUT - GALLERY BACKGROUND CONTINUES ===== */}
-      <section className="relative py-20 md:py-32 px-4 md:px-8 max-w-2xl mx-auto">
-        {/* Gallery background continues */}
-        <div className="fixed inset-0 z-0 w-full pointer-events-none"
-          style={{
-            top: "200vh",
-            height: "100vh",
-            backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663489963298/TeLdSdeGEfskEZUP2A7r4H/gallery-3d-bg-nvj3AgGJTnuF3AWEQ6Ztfv.webp')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
-
+      <section 
+        className="relative py-20 md:py-32 px-4 md:px-8 max-w-2xl mx-auto bg-cover bg-center"
+        style={{
+          backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663489963298/TeLdSdeGEfskEZUP2A7r4H/gallery-3d-bg-nvj3AgGJTnuF3AWEQ6Ztfv.webp')",
+          backgroundAttachment: "fixed",
+        }}
+      >
         <div className="relative z-10">
           <div
             style={{
@@ -317,21 +300,15 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 4: SOCIAL - ELEGANT DARK BACKGROUND ===== */}
-      <section className="relative py-20 md:py-32 px-4 md:px-8 overflow-hidden">
-        {/* Elegant Dark Background */}
-        <div className="fixed inset-0 z-0 w-full"
-          style={{
-            top: "300vh",
-            height: "100vh",
-          }}
-        >
-          <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663489963298/TeLdSdeGEfskEZUP2A7r4H/social-elegant-bg-3B3PVB43XW2wCGwDYeezRx.webp"
-            alt="Social Background"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/30" />
-        </div>
+      <section 
+        className="relative min-h-screen py-20 md:py-32 px-4 md:px-8 overflow-hidden bg-cover bg-center flex flex-col items-center justify-center"
+        style={{
+          backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663489963298/TeLdSdeGEfskEZUP2A7r4H/social-elegant-bg-3B3PVB43XW2wCGwDYeezRx.webp')",
+          backgroundAttachment: "fixed",
+        }}
+      >
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/40 z-0" />
 
         {/* Social Content */}
         <div className="relative z-10">
@@ -418,10 +395,9 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 py-12 md:py-16 px-4 md:px-8 text-center border-t drop-shadow-lg"
+      <footer className="relative z-10 py-12 md:py-16 px-4 md:px-8 text-center border-t drop-shadow-lg bg-black/80"
         style={{
           borderColor: "rgba(232, 213, 183, 0.15)",
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
         }}
       >
         <p className="text-xs md:text-sm drop-shadow-lg"
