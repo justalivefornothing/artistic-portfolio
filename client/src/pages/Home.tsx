@@ -2,25 +2,22 @@ import { useState, useEffect, useRef } from "react";
 import { Mail, Linkedin, Github } from "lucide-react";
 
 /**
- * INFERNUM MINIMALIST PORTFOLIO
- * Design: Van Gogh's Starry Night painting + vibrant typography
- * Young artist (17, Class 12, Varanasi) - minimal UI, maximum art focus
+ * INFERNUM MINIMALIST PORTFOLIO - MULTI-BACKGROUND DESIGN
  * 
- * Features:
- * - Van Gogh Starry Night background with swirling brushstrokes
- * - Vibrant, popping text colors (golden yellows, bright whites)
- * - Hero intro section with parallax
- * - Horizontal scroll gallery with curve effect (frames side-by-side)
- * - Multiple scroll animations (vertical + horizontal)
- * - Mobile-optimized responsive design
- * - Social links section
+ * Three distinct section backgrounds:
+ * 1. Hero: Van Gogh's Starry Night painting with swirling brushstrokes
+ * 2. Gallery: 3D Art Gallery interior with wooden floors and white walls
+ * 3. Social: Elegant dark navy with gold accents and geometric patterns
+ * 
+ * Gallery frames styled as real museum frames (not simple borders)
+ * Minimalist typography with soft colors
+ * Multiple scroll animations
  */
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [scrollX, setScrollX] = useState(0);
   const galleryRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,22 +52,21 @@ export default function Home() {
   ];
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      {/* Van Gogh Starry Night Background */}
-      <div className="fixed inset-0 z-0">
-        <img
-          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663489963298/TeLdSdeGEfskEZUP2A7r4H/van-gogh-starry-night-bg-K4Gs2NjCjM27YRSfwu7qvf.webp"
-          alt="Van Gogh Starry Night Background"
-          className="w-full h-full object-cover"
-        />
-        {/* Overlay for text readability */}
-        <div className="absolute inset-0 bg-black/20" />
-      </div>
+    <div className="relative">
+      {/* ===== SECTION 1: HERO - VAN GOGH STARRY NIGHT ===== */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-4 md:px-8 text-center overflow-hidden">
+        {/* Starry Night Background */}
+        <div className="fixed inset-0 z-0 w-full h-screen">
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663489963298/TeLdSdeGEfskEZUP2A7r4H/van-gogh-starry-night-bg-K4Gs2NjCjM27YRSfwu7qvf.webp"
+            alt="Van Gogh Starry Night"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/20" />
+        </div>
 
-      {/* Content */}
-      <div className="relative z-10">
-        {/* Hero Section */}
-        <section className="min-h-screen flex flex-col items-center justify-center px-4 md:px-8 text-center">
+        {/* Hero Content */}
+        <div className="relative z-10">
           <div
             style={{
               transform: `translateY(${scrollY * 0.3}px)`,
@@ -78,7 +74,6 @@ export default function Home() {
             }}
             className="transition-all duration-300"
           >
-            {/* Main Title - Soft Golden with subtle glow */}
             <h1 className="text-5xl md:text-8xl font-bold mb-4 leading-tight drop-shadow-lg"
               style={{
                 color: "#E8D5B7",
@@ -91,7 +86,6 @@ export default function Home() {
               INFERNUM
             </h1>
 
-            {/* Subtitle - Soft White */}
             <p className="text-lg md:text-2xl mb-2 font-light drop-shadow-lg"
               style={{
                 color: "#F5F5F0",
@@ -103,7 +97,6 @@ export default function Home() {
               Character Artist
             </p>
 
-            {/* Location & Status - Muted Blue */}
             <p className="text-sm md:text-base mb-8 drop-shadow-lg"
               style={{
                 color: "#A8C5DD",
@@ -115,7 +108,6 @@ export default function Home() {
               Varanasi • Class 12 • JEE & UCEED Prep
             </p>
 
-            {/* Scroll indicator - Soft Gold */}
             <div className="text-sm md:text-base drop-shadow-lg"
               style={{
                 color: "#D4AF9F",
@@ -126,27 +118,41 @@ export default function Home() {
               ↓ Scroll to explore ↓
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Horizontal Scroll Gallery Section */}
-        <section className="relative py-20 md:py-32 px-4 md:px-8">
+      {/* ===== SECTION 2: GALLERY - 3D ART GALLERY BACKGROUND ===== */}
+      <section className="relative py-20 md:py-32 px-4 md:px-8 overflow-hidden">
+        {/* Gallery 3D Background */}
+        <div className="fixed inset-0 z-0 w-full"
+          style={{
+            top: "100vh",
+            height: "100vh",
+          }}
+        >
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663489963298/TeLdSdeGEfskEZUP2A7r4H/gallery-3d-bg-nvj3AgGJTnuF3AWEQ6Ztfv.webp"
+            alt="Gallery"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Gallery Content */}
+        <div className="relative z-10">
           <div className="mb-12 text-center">
-            {/* Section Title - Soft Gold */}
             <h2 className="text-3xl md:text-5xl font-bold mb-2 drop-shadow-lg"
               style={{
-                color: "#E8D5B7",
-                textShadow: "0 0 12px rgba(232, 213, 183, 0.3)",
+                color: "#2C3E50",
+                textShadow: "0 0 8px rgba(44, 62, 80, 0.2)",
                 fontFamily: "'Playfair Display', serif",
                 letterSpacing: "0.02em",
               }}
             >
               Featured Works
             </h2>
-            {/* Subtitle - Muted Blue */}
             <p className="text-sm md:text-base drop-shadow-lg"
               style={{
-                color: "#A8C5DD",
-                textShadow: "0 0 8px rgba(168, 197, 221, 0.3)",
+                color: "#5D6D7B",
                 fontFamily: "'Inter', sans-serif",
               }}
             >
@@ -163,11 +169,9 @@ export default function Home() {
               WebkitOverflowScrolling: "touch",
             }}
           >
-            {/* Spacer for mobile */}
             <div className="flex-shrink-0 w-4 md:w-8" />
 
             {artworks.map((art, idx) => {
-              // Calculate rotation based on scroll position
               const rotationAngle = (scrollX / 100 + idx) * 5;
 
               return (
@@ -179,39 +183,54 @@ export default function Home() {
                     perspective: "1200px",
                   }}
                 >
-                  {/* Frame with curve effect */}
+                  {/* Museum Frame Container */}
                   <div
-                    className="relative h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-105"
+                    className="relative h-96 md:h-[500px] rounded-lg overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-105"
                     style={{
                       transform: `rotateY(${rotationAngle}deg) rotateX(${
                         Math.sin(scrollX / 200 + idx) * 5
                       }deg)`,
                       transformStyle: "preserve-3d",
-                      boxShadow: "0 0 30px rgba(255, 215, 0, 0.4), 0 0 60px rgba(0, 217, 255, 0.2)",
                     }}
                   >
-                    {/* Frame border with gradient */}
-                    <div className="absolute inset-0 border-8 md:border-12 rounded-2xl pointer-events-none z-10"
+                    {/* Outer Frame - Wood */}
+                    <div className="absolute inset-0 rounded-lg overflow-hidden"
                       style={{
-                        borderColor: "#D4AF9F",
-                        background: "linear-gradient(135deg, rgba(232, 213, 183, 0.08) 0%, rgba(168, 197, 221, 0.04) 100%)",
-                        boxShadow: "inset 0 0 15px rgba(232, 213, 183, 0.1)",
+                        background: "linear-gradient(135deg, #8B7355 0%, #A0826D 50%, #8B7355 100%)",
+                        boxShadow: "inset 0 1px 3px rgba(0, 0, 0, 0.3), inset 0 -1px 3px rgba(255, 255, 255, 0.1), 0 10px 30px rgba(0, 0, 0, 0.4)",
+                        padding: "12px",
                       }}
-                    />
+                    >
+                      {/* Inner Mat - Cream */}
+                      <div className="absolute inset-0 rounded"
+                        style={{
+                          background: "linear-gradient(135deg, #F5F1E8 0%, #E8DFD3 100%)",
+                          padding: "16px",
+                          margin: "12px",
+                          boxShadow: "inset 0 1px 2px rgba(0, 0, 0, 0.1)",
+                        }}
+                      >
+                        {/* Image Container */}
+                        <div className="w-full h-full rounded overflow-hidden"
+                          style={{
+                            boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)",
+                          }}
+                        >
+                          <img
+                            src={art.image}
+                            alt={art.title}
+                            className="w-full h-full object-cover"
+                            loading="lazy"
+                          />
+                        </div>
+                      </div>
+                    </div>
 
-                    {/* Image */}
-                    <img
-                      src={art.image}
-                      alt={art.title}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
+                    {/* Overlay gradient on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 z-20" />
 
-                    {/* Overlay gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
-
-                    {/* Title - Soft Gold */}
-                    <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/80 to-transparent">
+                    {/* Title Plate - Museum Style */}
+                    <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/80 to-transparent z-30">
                       <h3 className="text-lg md:text-xl font-semibold drop-shadow-lg"
                         style={{
                           color: "#E8D5B7",
@@ -227,25 +246,36 @@ export default function Home() {
               );
             })}
 
-            {/* Spacer for mobile */}
             <div className="flex-shrink-0 w-4 md:w-8" />
           </div>
 
-          {/* Scroll hint for mobile */}
           <div className="text-center mt-8 md:hidden">
             <p className="text-xs animate-pulse drop-shadow-lg"
               style={{
-                color: "#00D9FF",
-                textShadow: "0 0 10px rgba(0, 217, 255, 0.6)",
+                color: "#5D6D7B",
+                fontFamily: "'Inter', sans-serif",
               }}
             >
               ← Swipe to see more →
             </p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* About Section */}
-        <section className="py-20 md:py-32 px-4 md:px-8 max-w-2xl mx-auto">
+      {/* ===== SECTION 3: ABOUT - GALLERY BACKGROUND CONTINUES ===== */}
+      <section className="relative py-20 md:py-32 px-4 md:px-8 max-w-2xl mx-auto">
+        {/* Gallery background continues */}
+        <div className="fixed inset-0 z-0 w-full pointer-events-none"
+          style={{
+            top: "200vh",
+            height: "100vh",
+            backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663489963298/TeLdSdeGEfskEZUP2A7r4H/gallery-3d-bg-nvj3AgGJTnuF3AWEQ6Ztfv.webp')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+
+        <div className="relative z-10">
           <div
             style={{
               opacity: Math.min(1, (scrollY - 1200) / 400),
@@ -253,11 +283,10 @@ export default function Home() {
             }}
             className="transition-all duration-300"
           >
-            {/* Section Title - Soft Gold */}
             <h2 className="text-3xl md:text-4xl font-bold mb-6 drop-shadow-lg"
               style={{
-                color: "#E8D5B7",
-                textShadow: "0 0 12px rgba(232, 213, 183, 0.3)",
+                color: "#2C3E50",
+                textShadow: "0 0 8px rgba(44, 62, 80, 0.2)",
                 fontFamily: "'Playfair Display', serif",
                 letterSpacing: "0.02em",
               }}
@@ -265,11 +294,9 @@ export default function Home() {
               About
             </h2>
 
-            {/* Body Text - Soft White */}
             <p className="text-base md:text-lg leading-relaxed mb-4 drop-shadow-lg"
               style={{
-                color: "#F5F5F0",
-                textShadow: "0 0 8px rgba(245, 245, 240, 0.2)",
+                color: "#34495E",
                 fontFamily: "'Inter', sans-serif",
                 lineHeight: "1.7",
               }}
@@ -278,8 +305,7 @@ export default function Home() {
             </p>
             <p className="text-base md:text-lg leading-relaxed drop-shadow-lg"
               style={{
-                color: "#F5F5F0",
-                textShadow: "0 0 8px rgba(245, 245, 240, 0.2)",
+                color: "#34495E",
                 fontFamily: "'Inter', sans-serif",
                 lineHeight: "1.7",
               }}
@@ -287,10 +313,28 @@ export default function Home() {
               Through my art, I explore storytelling, emotion, and visual design. Every piece is a journey of learning and growth.
             </p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Social Section */}
-        <section className="py-20 md:py-32 px-4 md:px-8">
+      {/* ===== SECTION 4: SOCIAL - ELEGANT DARK BACKGROUND ===== */}
+      <section className="relative py-20 md:py-32 px-4 md:px-8 overflow-hidden">
+        {/* Elegant Dark Background */}
+        <div className="fixed inset-0 z-0 w-full"
+          style={{
+            top: "300vh",
+            height: "100vh",
+          }}
+        >
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663489963298/TeLdSdeGEfskEZUP2A7r4H/social-elegant-bg-3B3PVB43XW2wCGwDYeezRx.webp"
+            alt="Social Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+
+        {/* Social Content */}
+        <div className="relative z-10">
           <div
             style={{
               opacity: Math.min(1, (scrollY - 1600) / 400),
@@ -298,7 +342,6 @@ export default function Home() {
             className="transition-all duration-300"
           >
             <div className="text-center mb-12">
-              {/* Section Title - Soft Gold */}
               <h2 className="text-3xl md:text-4xl font-bold mb-4 drop-shadow-lg"
                 style={{
                   color: "#E8D5B7",
@@ -309,7 +352,6 @@ export default function Home() {
               >
                 Connect
               </h2>
-              {/* Subtitle - Muted Blue */}
               <p className="text-sm md:text-base drop-shadow-lg"
                 style={{
                   color: "#A8C5DD",
@@ -344,12 +386,10 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="group relative transition-all duration-300 hover:scale-110"
                 >
-                  {/* Glowing background */}
                   <div
                     className={`absolute inset-0 bg-gradient-to-r ${social.color} rounded-full blur-lg opacity-0 group-hover:opacity-75 transition-opacity duration-300`}
                   />
 
-                  {/* Button */}
                   <div className="relative px-8 py-4 md:px-10 md:py-5 rounded-full hover:backdrop-blur-sm transition-all duration-300"
                     style={{
                       border: "2px solid #D4AF9F",
@@ -374,37 +414,36 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Footer */}
-        <footer className="py-12 md:py-16 px-4 md:px-8 text-center border-t drop-shadow-lg"
+      {/* Footer */}
+      <footer className="relative z-10 py-12 md:py-16 px-4 md:px-8 text-center border-t drop-shadow-lg"
+        style={{
+          borderColor: "rgba(232, 213, 183, 0.15)",
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+        }}
+      >
+        <p className="text-xs md:text-sm drop-shadow-lg"
           style={{
-            borderColor: "rgba(232, 213, 183, 0.15)",
+            color: "#A8C5DD",
+            textShadow: "0 0 8px rgba(168, 197, 221, 0.3)",
+            fontFamily: "'Inter', sans-serif",
           }}
         >
-          <p className="text-xs md:text-sm drop-shadow-lg"
-            style={{
-              color: "#A8C5DD",
-              textShadow: "0 0 8px rgba(168, 197, 221, 0.3)",
-              fontFamily: "'Inter', sans-serif",
-            }}
-          >
-            © 2026 Infernum • Varanasi, India
-          </p>
-        </footer>
-      </div>
+          © 2026 Infernum • Varanasi, India
+        </p>
+      </footer>
 
       {/* CSS Animations */}
       <style>{`
-        /* Smooth scrolling */
         html {
           scroll-behavior: smooth;
         }
 
-        /* Hide scrollbar for gallery but keep functionality */
         .overflow-x-auto {
           scrollbar-width: thin;
-          scrollbar-color: rgba(255, 215, 0, 0.4) transparent;
+          scrollbar-color: rgba(232, 213, 183, 0.4) transparent;
         }
 
         .overflow-x-auto::-webkit-scrollbar {
@@ -424,7 +463,6 @@ export default function Home() {
           background: rgba(232, 213, 183, 0.5);
         }
 
-        /* Mobile optimizations */
         @media (max-width: 768px) {
           body {
             -webkit-user-select: none;
@@ -437,20 +475,17 @@ export default function Home() {
           }
         }
 
-        /* Smooth transitions */
         * {
           transition-property: opacity, transform;
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Focus styles */
         a:focus-visible,
         button:focus-visible {
           outline: 2px solid rgba(232, 213, 183, 0.6);
           outline-offset: 2px;
         }
 
-        /* Subtle text glow effect */
         h1, h2 {
           animation: textGlow 4s ease-in-out infinite;
         }
