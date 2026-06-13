@@ -78,43 +78,49 @@ export default function Home() {
             }}
             className="transition-all duration-300"
           >
-            {/* Main Title - Vibrant Golden Yellow with glow */}
+            {/* Main Title - Soft Golden with subtle glow */}
             <h1 className="text-5xl md:text-8xl font-bold mb-4 leading-tight drop-shadow-lg"
               style={{
-                color: "#FFD700",
-                textShadow: "0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.4)",
-                fontFamily: "Playfair Display, serif",
-                letterSpacing: "0.1em",
+                color: "#E8D5B7",
+                textShadow: "0 0 15px rgba(232, 213, 183, 0.4), 0 0 30px rgba(232, 213, 183, 0.2)",
+                fontFamily: "'Playfair Display', serif",
+                letterSpacing: "0.05em",
+                fontWeight: "700",
               }}
             >
               INFERNUM
             </h1>
 
-            {/* Subtitle - Bright White */}
-            <p className="text-lg md:text-3xl mb-2 font-light drop-shadow-lg"
+            {/* Subtitle - Soft White */}
+            <p className="text-lg md:text-2xl mb-2 font-light drop-shadow-lg"
               style={{
-                color: "#FFFFFF",
-                textShadow: "0 0 10px rgba(255, 255, 255, 0.6)",
+                color: "#F5F5F0",
+                textShadow: "0 0 8px rgba(245, 245, 240, 0.3)",
+                fontFamily: "'Inter', sans-serif",
+                letterSpacing: "0.02em",
               }}
             >
               Character Artist
             </p>
 
-            {/* Location & Status - Cyan/Light Blue */}
-            <p className="text-sm md:text-lg mb-8 drop-shadow-lg"
+            {/* Location & Status - Muted Blue */}
+            <p className="text-sm md:text-base mb-8 drop-shadow-lg"
               style={{
-                color: "#00D9FF",
-                textShadow: "0 0 10px rgba(0, 217, 255, 0.6)",
+                color: "#A8C5DD",
+                textShadow: "0 0 8px rgba(168, 197, 221, 0.3)",
+                fontFamily: "'Inter', sans-serif",
+                letterSpacing: "0.01em",
               }}
             >
               Varanasi • Class 12 • JEE & UCEED Prep
             </p>
 
-            {/* Scroll indicator - Golden Yellow */}
+            {/* Scroll indicator - Soft Gold */}
             <div className="text-sm md:text-base drop-shadow-lg"
               style={{
-                color: "#FFD700",
-                textShadow: "0 0 10px rgba(255, 215, 0, 0.6)",
+                color: "#D4AF9F",
+                textShadow: "0 0 8px rgba(212, 175, 159, 0.3)",
+                fontFamily: "'Inter', sans-serif",
               }}
             >
               ↓ Scroll to explore ↓
@@ -125,21 +131,23 @@ export default function Home() {
         {/* Horizontal Scroll Gallery Section */}
         <section className="relative py-20 md:py-32 px-4 md:px-8">
           <div className="mb-12 text-center">
-            {/* Section Title - Vibrant Yellow */}
+            {/* Section Title - Soft Gold */}
             <h2 className="text-3xl md:text-5xl font-bold mb-2 drop-shadow-lg"
               style={{
-                color: "#FFD700",
-                textShadow: "0 0 20px rgba(255, 215, 0, 0.8)",
-                fontFamily: "Playfair Display, serif",
+                color: "#E8D5B7",
+                textShadow: "0 0 12px rgba(232, 213, 183, 0.3)",
+                fontFamily: "'Playfair Display', serif",
+                letterSpacing: "0.02em",
               }}
             >
               Featured Works
             </h2>
-            {/* Subtitle - Cyan */}
+            {/* Subtitle - Muted Blue */}
             <p className="text-sm md:text-base drop-shadow-lg"
               style={{
-                color: "#00D9FF",
-                textShadow: "0 0 10px rgba(0, 217, 255, 0.6)",
+                color: "#A8C5DD",
+                textShadow: "0 0 8px rgba(168, 197, 221, 0.3)",
+                fontFamily: "'Inter', sans-serif",
               }}
             >
               Scroll horizontally to explore →
@@ -185,9 +193,9 @@ export default function Home() {
                     {/* Frame border with gradient */}
                     <div className="absolute inset-0 border-8 md:border-12 rounded-2xl pointer-events-none z-10"
                       style={{
-                        borderColor: "#FFD700",
-                        background: "linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(0, 217, 255, 0.05) 100%)",
-                        boxShadow: "inset 0 0 20px rgba(255, 215, 0, 0.2)",
+                        borderColor: "#D4AF9F",
+                        background: "linear-gradient(135deg, rgba(232, 213, 183, 0.08) 0%, rgba(168, 197, 221, 0.04) 100%)",
+                        boxShadow: "inset 0 0 15px rgba(232, 213, 183, 0.1)",
                       }}
                     />
 
@@ -202,12 +210,13 @@ export default function Home() {
                     {/* Overlay gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
 
-                    {/* Title - Golden Yellow */}
+                    {/* Title - Soft Gold */}
                     <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/80 to-transparent">
                       <h3 className="text-lg md:text-xl font-semibold drop-shadow-lg"
                         style={{
-                          color: "#FFD700",
-                          textShadow: "0 0 10px rgba(255, 215, 0, 0.8)",
+                          color: "#E8D5B7",
+                          textShadow: "0 0 8px rgba(232, 213, 183, 0.4)",
+                          fontFamily: "'Inter', sans-serif",
                         }}
                       >
                         {art.title}
@@ -244,30 +253,35 @@ export default function Home() {
             }}
             className="transition-all duration-300"
           >
-            {/* Section Title - Golden Yellow */}
+            {/* Section Title - Soft Gold */}
             <h2 className="text-3xl md:text-4xl font-bold mb-6 drop-shadow-lg"
               style={{
-                color: "#FFD700",
-                textShadow: "0 0 20px rgba(255, 215, 0, 0.8)",
-                fontFamily: "Playfair Display, serif",
+                color: "#E8D5B7",
+                textShadow: "0 0 12px rgba(232, 213, 183, 0.3)",
+                fontFamily: "'Playfair Display', serif",
+                letterSpacing: "0.02em",
               }}
             >
               About
             </h2>
 
-            {/* Body Text - Bright White */}
+            {/* Body Text - Soft White */}
             <p className="text-base md:text-lg leading-relaxed mb-4 drop-shadow-lg"
               style={{
-                color: "#FFFFFF",
-                textShadow: "0 0 10px rgba(255, 255, 255, 0.4)",
+                color: "#F5F5F0",
+                textShadow: "0 0 8px rgba(245, 245, 240, 0.2)",
+                fontFamily: "'Inter', sans-serif",
+                lineHeight: "1.7",
               }}
             >
               I'm a 17-year-old digital character artist from Varanasi, currently in Class 12 while preparing for JEE and UCEED. My passion lies in creating expressive character designs with vibrant colors and dynamic poses.
             </p>
             <p className="text-base md:text-lg leading-relaxed drop-shadow-lg"
               style={{
-                color: "#FFFFFF",
-                textShadow: "0 0 10px rgba(255, 255, 255, 0.4)",
+                color: "#F5F5F0",
+                textShadow: "0 0 8px rgba(245, 245, 240, 0.2)",
+                fontFamily: "'Inter', sans-serif",
+                lineHeight: "1.7",
               }}
             >
               Through my art, I explore storytelling, emotion, and visual design. Every piece is a journey of learning and growth.
@@ -284,21 +298,23 @@ export default function Home() {
             className="transition-all duration-300"
           >
             <div className="text-center mb-12">
-              {/* Section Title - Golden Yellow */}
+              {/* Section Title - Soft Gold */}
               <h2 className="text-3xl md:text-4xl font-bold mb-4 drop-shadow-lg"
                 style={{
-                  color: "#FFD700",
-                  textShadow: "0 0 20px rgba(255, 215, 0, 0.8)",
-                  fontFamily: "Playfair Display, serif",
+                  color: "#E8D5B7",
+                  textShadow: "0 0 12px rgba(232, 213, 183, 0.3)",
+                  fontFamily: "'Playfair Display', serif",
+                  letterSpacing: "0.02em",
                 }}
               >
                 Connect
               </h2>
-              {/* Subtitle - Cyan */}
+              {/* Subtitle - Muted Blue */}
               <p className="text-sm md:text-base drop-shadow-lg"
                 style={{
-                  color: "#00D9FF",
-                  textShadow: "0 0 10px rgba(0, 217, 255, 0.6)",
+                  color: "#A8C5DD",
+                  textShadow: "0 0 8px rgba(168, 197, 221, 0.3)",
+                  fontFamily: "'Inter', sans-serif",
                 }}
               >
                 Follow my journey and stay updated
@@ -336,17 +352,18 @@ export default function Home() {
                   {/* Button */}
                   <div className="relative px-8 py-4 md:px-10 md:py-5 rounded-full hover:backdrop-blur-sm transition-all duration-300"
                     style={{
-                      border: "2px solid #FFD700",
-                      background: "rgba(255, 215, 0, 0.1)",
-                      boxShadow: "0 0 15px rgba(255, 215, 0, 0.3)",
+                      border: "2px solid #D4AF9F",
+                      background: "rgba(232, 213, 183, 0.08)",
+                      boxShadow: "0 0 12px rgba(232, 213, 183, 0.15)",
                     }}
                   >
                     <div className="flex items-center gap-3">
-                      <social.icon className="w-5 h-5 md:w-6 md:h-6" style={{ color: "#FFD700" }} />
+                      <social.icon className="w-5 h-5 md:w-6 md:h-6" style={{ color: "#E8D5B7" }} />
                       <span className="font-medium text-sm md:text-base drop-shadow-lg"
                         style={{
-                          color: "#FFD700",
-                          textShadow: "0 0 10px rgba(255, 215, 0, 0.6)",
+                          color: "#E8D5B7",
+                          textShadow: "0 0 8px rgba(232, 213, 183, 0.4)",
+                          fontFamily: "'Inter', sans-serif",
                         }}
                       >
                         {social.name}
@@ -362,13 +379,14 @@ export default function Home() {
         {/* Footer */}
         <footer className="py-12 md:py-16 px-4 md:px-8 text-center border-t drop-shadow-lg"
           style={{
-            borderColor: "rgba(255, 215, 0, 0.2)",
+            borderColor: "rgba(232, 213, 183, 0.15)",
           }}
         >
           <p className="text-xs md:text-sm drop-shadow-lg"
             style={{
-              color: "#00D9FF",
-              textShadow: "0 0 10px rgba(0, 217, 255, 0.6)",
+              color: "#A8C5DD",
+              textShadow: "0 0 8px rgba(168, 197, 221, 0.3)",
+              fontFamily: "'Inter', sans-serif",
             }}
           >
             © 2026 Infernum • Varanasi, India
@@ -398,12 +416,12 @@ export default function Home() {
         }
 
         .overflow-x-auto::-webkit-scrollbar-thumb {
-          background: rgba(255, 215, 0, 0.4);
+          background: rgba(232, 213, 183, 0.3);
           border-radius: 2px;
         }
 
         .overflow-x-auto::-webkit-scrollbar-thumb:hover {
-          background: rgba(255, 215, 0, 0.7);
+          background: rgba(232, 213, 183, 0.5);
         }
 
         /* Mobile optimizations */
@@ -428,21 +446,21 @@ export default function Home() {
         /* Focus styles */
         a:focus-visible,
         button:focus-visible {
-          outline: 2px solid rgba(255, 215, 0, 0.8);
+          outline: 2px solid rgba(232, 213, 183, 0.6);
           outline-offset: 2px;
         }
 
-        /* Text glow effect */
+        /* Subtle text glow effect */
         h1, h2 {
-          animation: textGlow 3s ease-in-out infinite;
+          animation: textGlow 4s ease-in-out infinite;
         }
 
         @keyframes textGlow {
           0%, 100% {
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.4);
+            text-shadow: 0 0 12px rgba(232, 213, 183, 0.3), 0 0 24px rgba(232, 213, 183, 0.15);
           }
           50% {
-            text-shadow: 0 0 30px rgba(255, 215, 0, 1), 0 0 60px rgba(255, 215, 0, 0.6);
+            text-shadow: 0 0 18px rgba(232, 213, 183, 0.4), 0 0 36px rgba(232, 213, 183, 0.2);
           }
         }
       `}</style>
