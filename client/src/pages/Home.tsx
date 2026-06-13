@@ -2,19 +2,19 @@ import { useState, useEffect, useRef } from "react";
 import { Mail, Github } from "lucide-react";
 
 /**
- * INFERNUM PORTFOLIO - THREE DISTINCT BACKGROUNDS
+ * INFERNUM PORTFOLIO - CORRECTED DESIGN
  * 
  * SECTION 1 (Hero): Van Gogh Starry Night background
- * SECTION 2 (Gallery): 3D Art Gallery background
- * SECTION 3 (Social): Elegant dark navy with gold accents
- * 
- * Each section has its OWN full background that changes as you scroll
+ * SECTION 2 (Gallery): Clean WHITE background with horizontal scrolling frames
+ *                      Smooth reveal animations as frames enter viewport
+ * SECTION 3 (Social): Van Gogh Irises painting background
  */
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [scrollX, setScrollX] = useState(0);
   const galleryRef = useRef<HTMLDivElement>(null);
+  const [frameVisibility, setFrameVisibility] = useState<boolean[]>([false, false, false, false]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,10 +23,24 @@ export default function Home() {
       if (galleryRef.current) {
         setScrollX(galleryRef.current.scrollLeft);
       }
+
+      // Check frame visibility
+      if (galleryRef.current) {
+        const frames = galleryRef.current.querySelectorAll('[data-frame]');
+        const visibility = Array.from(frames).map((frame) => {
+          const rect = frame.getBoundingClientRect();
+          return rect.left < window.innerWidth && rect.right > 0;
+        });
+        setFrameVisibility(visibility);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const artworks = [
@@ -117,12 +131,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== SECTION 2: GALLERY - 3D ART GALLERY BACKGROUND ===== */}
+      {/* ===== SECTION 2: GALLERY - WHITE BACKGROUND ===== */}
       <section 
-        className="relative min-h-screen py-20 md:py-32 px-4 md:px-8 overflow-hidden bg-cover bg-center"
+        className="relative min-h-screen py-20 md:py-32 px-4 md:px-8 overflow-hidden"
         style={{
-          backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663489963298/TeLdSdeGEfskEZUP2A7r4H/gallery-3d-bg-nvj3AgGJTnuF3AWEQ6Ztfv.webp')",
-          backgroundAttachment: "fixed",
+          backgroundColor: "#FFFFFF",
         }}
       >
         {/* Gallery Content */}
@@ -131,14 +144,13 @@ export default function Home() {
             <h2 className="text-3xl md:text-5xl font-bold mb-2 drop-shadow-lg"
               style={{
                 color: "#2C3E50",
-                textShadow: "0 0 8px rgba(44, 62, 80, 0.2)",
                 fontFamily: "'Playfair Display', serif",
                 letterSpacing: "0.02em",
               }}
             >
               Featured Works
             </h2>
-            <p className="text-sm md:text-base drop-shadow-lg"
+            <p className="text-sm md:text-base"
               style={{
                 color: "#5D6D7B",
                 fontFamily: "'Inter', sans-serif",
@@ -165,10 +177,16 @@ export default function Home() {
               return (
                 <div
                   key={idx}
+                  data-frame={idx}
                   className="flex-shrink-0"
                   style={{
                     width: "clamp(280px, 80vw, 500px)",
                     perspective: "1200px",
+                    opacity: frameVisibility[idx] ? 1 : 0.3,
+                    transform: frameVisibility[idx] 
+                      ? "translateY(0) scale(1)" 
+                      : "translateY(30px) scale(0.95)",
+                    transition: "all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)",
                   }}
                 >
                   {/* Museum Frame Container */}
@@ -238,7 +256,7 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-8 md:hidden">
-            <p className="text-xs animate-pulse drop-shadow-lg"
+            <p className="text-xs animate-pulse"
               style={{
                 color: "#5D6D7B",
                 fontFamily: "'Inter', sans-serif",
@@ -250,12 +268,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== SECTION 3: ABOUT - GALLERY BACKGROUND CONTINUES ===== */}
+      {/* ===== SECTION 3: ABOUT - WHITE BACKGROUND ===== */}
       <section 
-        className="relative py-20 md:py-32 px-4 md:px-8 max-w-2xl mx-auto bg-cover bg-center"
+        className="relative py-20 md:py-32 px-4 md:px-8 max-w-2xl mx-auto"
         style={{
-          backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663489963298/TeLdSdeGEfskEZUP2A7r4H/gallery-3d-bg-nvj3AgGJTnuF3AWEQ6Ztfv.webp')",
-          backgroundAttachment: "fixed",
+          backgroundColor: "#FFFFFF",
         }}
       >
         <div className="relative z-10">
@@ -266,10 +283,9 @@ export default function Home() {
             }}
             className="transition-all duration-300"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 drop-shadow-lg"
+            <h2 className="text-3xl md:text-4xl font-bold mb-6"
               style={{
                 color: "#2C3E50",
-                textShadow: "0 0 8px rgba(44, 62, 80, 0.2)",
                 fontFamily: "'Playfair Display', serif",
                 letterSpacing: "0.02em",
               }}
@@ -277,7 +293,7 @@ export default function Home() {
               About
             </h2>
 
-            <p className="text-base md:text-lg leading-relaxed mb-4 drop-shadow-lg"
+            <p className="text-base md:text-lg leading-relaxed mb-4"
               style={{
                 color: "#34495E",
                 fontFamily: "'Inter', sans-serif",
@@ -286,7 +302,7 @@ export default function Home() {
             >
               I'm a 17-year-old digital character artist from Varanasi, currently in Class 12 while preparing for JEE and UCEED. My passion lies in creating expressive character designs with vibrant colors and dynamic poses.
             </p>
-            <p className="text-base md:text-lg leading-relaxed drop-shadow-lg"
+            <p className="text-base md:text-lg leading-relaxed"
               style={{
                 color: "#34495E",
                 fontFamily: "'Inter', sans-serif",
@@ -299,11 +315,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== SECTION 4: SOCIAL - ELEGANT DARK BACKGROUND ===== */}
+      {/* ===== SECTION 4: SOCIAL - VAN GOGH IRISES ===== */}
       <section 
         className="relative min-h-screen py-20 md:py-32 px-4 md:px-8 overflow-hidden bg-cover bg-center flex flex-col items-center justify-center"
         style={{
-          backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663489963298/TeLdSdeGEfskEZUP2A7r4H/social-elegant-bg-3B3PVB43XW2wCGwDYeezRx.webp')",
+          backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663489963298/TeLdSdeGEfskEZUP2A7r4H/van-gogh-irises-bg-cReXPctTGUJbXcSepvkgpx.webp')",
           backgroundAttachment: "fixed",
         }}
       >
@@ -419,7 +435,7 @@ export default function Home() {
 
         .overflow-x-auto {
           scrollbar-width: thin;
-          scrollbar-color: rgba(232, 213, 183, 0.4) transparent;
+          scrollbar-color: rgba(44, 62, 80, 0.4) transparent;
         }
 
         .overflow-x-auto::-webkit-scrollbar {
@@ -431,12 +447,12 @@ export default function Home() {
         }
 
         .overflow-x-auto::-webkit-scrollbar-thumb {
-          background: rgba(232, 213, 183, 0.3);
+          background: rgba(44, 62, 80, 0.3);
           border-radius: 2px;
         }
 
         .overflow-x-auto::-webkit-scrollbar-thumb:hover {
-          background: rgba(232, 213, 183, 0.5);
+          background: rgba(44, 62, 80, 0.5);
         }
 
         @media (max-width: 768px) {
